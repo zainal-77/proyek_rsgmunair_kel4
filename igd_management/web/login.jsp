@@ -25,11 +25,16 @@ if( act != null && act.equals("login")){
 
 		session.setAttribute("is_login","1");
 		session.setAttribute("username",fl.getUsername());
-		if(ar.getPesan("perawat")){
-			response.sendRedirect("home_perawatigd");
-		}
-		else if(ar.getPesan("admin")){
-			response.sendRedirect("home_utamaigd");
+		session.setAttribute("permission_level", ar.getPesan());
+		
+
+		if (ar.getPesan().equals("admin")) {
+   		 // logic admin
+			response.sendRedirect("")
+		} else if (ar.getPesan().equals("perawat")) {
+    	// logic perawat
+		} else {
+    	// logic lainnya jika diperlukan
 		}
 		
 		response.sendRedirect("home.jsp");
@@ -40,20 +45,6 @@ if( act != null && act.equals("login")){
 	
 }	
 
-void checkRole(User &u) {
-  if (u.role == "admin") {
-    cout << u.user << " is admin.\n";
-    // admin-only actions here...
-  }
-  else if (u.role == "moderator") {
-    // mod actions here
-    // add more roles
-  }
-  else {
-    cout << u.user << " is not an admin.\n";
-    // other actions here...   
-  }
-}
 
 %>
 <!DOCTYPE html>
@@ -117,3 +108,5 @@ void checkRole(User &u) {
 		</div>
 	</body>
 </html>
+
+
