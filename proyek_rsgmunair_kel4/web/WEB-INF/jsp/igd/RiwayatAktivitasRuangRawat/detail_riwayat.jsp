@@ -1,6 +1,5 @@
 <%@ page import="rsgm_unair.Pasien_management.*" %>
-<%@ page import="rsgm_unair.igd_management.*" %>
-<%@ page import="rsgm_unair.user_management.*" %>
+<%@ page import="rsgm_unair.igd_management.RiwayatAktivitasRuangRawat.*" %>
 <%@ page import="rsgm_unair.shared.*" %>
 <%@ page import="org.json.*" %>
 <%@ page import="java.util.*" %>
@@ -29,7 +28,7 @@ JSONObject Riwayat = RiwayatManagement.findRiwayat(id);
     <tbody>
         <tr class="pure-table-odd">
             <th >No Ruang</th>
-            <th class="pure-u-1-2"><%=Riwayat.getString("noruang") %></th>
+            <th class="pure-u-1-2"><%=Riwayat.getString("noruangrawat") %></th>
         </tr>
         <tr>
             <th>Nama Pasien</th>
@@ -61,7 +60,7 @@ JSONObject Riwayat = RiwayatManagement.findRiwayat(id);
         
         <tr>
           <th>Penggunaan Alat Medis</th>
-            <th class="pure-u-1-2"><%=Riwayat.getString("alatkesehatan") %></th>
+            <th class="pure-u-1-2"><%=Riwayat.getString("alatmedis") %></th>
         </tr>
     </tbody>
 </table>

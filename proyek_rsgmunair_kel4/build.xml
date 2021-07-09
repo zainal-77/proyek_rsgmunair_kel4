@@ -45,7 +45,7 @@
      set to the current working directory.
 -->
 
-<project name="user_management" default="all" basedir=".">
+<project name="proyek_rsgmunair_kel4" default="all" basedir=".">
 
 
 
@@ -124,7 +124,7 @@
 
 -->
 
-  <property name="app.name"      		value="user_management"/>
+  <property name="app.name"      		value="proyek_rsgmunair_kel4"/>
   <property name="app.path"      		value="/${app.name}"/>
   <property name="app.version"   		value="0.1-dev"/>
   <property name="build.home"    		value="${basedir}/build"/>

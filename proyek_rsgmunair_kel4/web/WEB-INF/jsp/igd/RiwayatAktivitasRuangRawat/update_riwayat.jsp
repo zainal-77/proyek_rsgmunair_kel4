@@ -1,6 +1,4 @@
-<%@ page import="rsgm_unair.pasien_management.*" %>
-<%@ page import="rsgm_unair.user_management.*" %>
-<%@ page import="rsgm_unair.igd_management.*" %>
+<%@ page import="rsgm_unair.igd_management.RiwayatAktivitasRuangRawat.*" %>
 <%@ page import="rsgm_unair.shared.*" %>
 <%@ page import="org.json.*" %>
 <%@ page import="java.util.*" %>
@@ -14,7 +12,7 @@ JSONObject riwayat = null;
 riwayat = RiwayatManagement.findRiwayat(id);
 
 
-if(action != null && action.equals("update_RiwayatAktivitas")){
+if(action != null && action.equals("update_riwayat")){
 	
     DataRiwayatAktivitas ra = new DataRiwayatAktivitas();
 	ra.setNoriwayat(request.getParameter("noriwayat"));
@@ -25,13 +23,13 @@ if(action != null && action.equals("update_RiwayatAktivitas")){
     ra.setTglmasuk(request.getParameter("tglmasuk"));
     ra.setTglkeluar(request.getParameter("tglkeluar"));
     ra.setObat(request.getParameter("obat"));
-    ra.setAlatkesehatan(request.getParameter("alatkesehatan"));
+    ra.setAlatmedis(request.getParameter("alatmedis"));
 	resp = RiwayatManagement.CreateEditRiwayat(ra);
 	
-}
-    %>
+
+%>
 <script>
-  window.location.href="?act=detail_pasien&noriwayat=<%=riwayat.getString("noriwayat")%>";
+  window.location.href="?act=detail_riwayat&noriwayat=<%=riwayat.getString("noriwayat")%>";
  </script>
  <%
     }
@@ -48,11 +46,11 @@ if(action != null && action.equals("update_RiwayatAktivitas")){
     </div>
 </div>
 <div class="pure-u">
-<form class="pure-form pure-form-aligned" method="post" action="?act=update_RiwayatAktivitas">
+<form class="pure-form pure-form-aligned" method="post" action="?act=update_riwayat">
     <fieldset>
-        <input type="hidden" id="noriwayat" name="action" value="update_RiwayatAktivitas">
-        <input type="hidden" id="noriwayat" name="_rev" value="<%=pasien.getString("_rev")%>">
-        <input type="hidden" id="noriwayat" name="noriwayat" value="<%=pasien.getString("noriwayat")%>">
+        <input type="hidden" id="noriwayat" name="action" value="update_riwayat">
+        <input type="hidden" id="noriwayat" name="_rev" value="<%=riwayat.getString("_rev")%>">
+        <input type="hidden" id="noriwayat" name="noriwayat" value="<%=riwayat.getString("noriwayat")%>">
 
 
         <div class="pure-control-group ">
@@ -94,8 +92,8 @@ if(action != null && action.equals("update_RiwayatAktivitas")){
 
         
         <div class="pure-control-group ">
-            <label for="aligned-alatkesehatan">Penggunaan Alat Medis</label>
-            <input  class="pure-u-1-2" type="text" name="alatkesehatan" id="aligned-alatkesehatan" placeholder=" Isi Penggunaan Alat Kesehatan" value="<%=riwayat.getString("alatkesehatan") %>"/>
+            <label for="aligned-alatmedis">Penggunaan Alat Medis</label>
+            <input  class="pure-u-1-2" type="text" name="alatmedis" id="aligned-alatmedis" placeholder=" Isi Penggunaan Alat Kesehatan" value="<%=riwayat.getString("alatmedis") %>"/>
         </div>
 
 

@@ -1,6 +1,5 @@
 <%@ page import="rsgm_unair.pasien_management.*" %>
-<%@ page import="rsgm_unair.igd_management.*" %>
-<%@ page import="rsgm_unair.user_management.*" %>
+<%@ page import="rsgm_unair.igd_management.RiwayatAktivitasRuangRawat.*" %>
 <%@ page import="rsgm_unair.shared.*" %>
 <%@ page import="org.json.*" %>
 <%@ page import="java.util.*" %>
@@ -19,17 +18,17 @@ if(searchKey == null){
 }
 
 
-InputPagingRiwayat ipr = new InputPagingRiwayat();
-ipr.setPerPage(10);
+InputPagingRiwayat ipa = new InputPagingRiwayat();
+ipa.setPerPage(10);
 
 if(request.getParameter("offset") != null && !request.getParameter("offset").trim().equals("")){
-    ipr.setOffset( Integer.parseInt(request.getParameter("offset")));
+    ipa.setOffset( Integer.parseInt(request.getParameter("offset")));
 }
 if(searchKey != null && !searchKey.trim().equals("")){
-    ipr.setSearchKey(searchKey);
+    ipa.setSearchKey(searchKey);
 }
 
-Paging pageriwayat = RiwayatManagement.getPagingRiwayat(ipr);
+Paging pageriwayat = RiwayatManagement.getPagingRiwayat(ipa);
 String noriwayat = request.getParameter("noriwayat");
 if(noriwayat != null && !noriwayat.trim().equals("")){
     riwayat = RiwayatManagement.findRiwayat(noriwayat);
@@ -47,7 +46,7 @@ if(noriwayat != null && !noriwayat.trim().equals("")){
             <input type="text" name="riwayat_search_key" class="pure-input-rounded" placeholder="noriwayat" value="<%=searchKey%>" />
             <input type="submit" class="pure-button pure-button-primary" value="cari" />
         </form>
-        <a href="?act=addriwayat" class="pure-u-1-3"><button class="button-success pure-button" style="background: rgb(28, 184, 65);">Tambah</button></a> 
+        <a href="?act=add_riwayat" class="pure-u-1-3"><button class="button-success pure-button" style="background: rgb(28, 184, 65);">Tambah</button></a> 
         <p></p>
         <table class="pure-table pure-table-horizontal ">
             <thead>
@@ -70,7 +69,7 @@ if(noriwayat != null && !noriwayat.trim().equals("")){
                 <tr>
                     <td><%=(pageriwayat.getResultFrom() + i)%></td>
                     <td><%=pageriwayat.getResultList().get(i).getString("noriwayat")%></td>
-                    <td><%=pageriwayat.getResultList().get(i).getString("noruang")%></td>
+                    <td><%=pageriwayat.getResultList().get(i).getString("noruangrawat")%></td>
                     <td><%=pageriwayat.getResultList().get(i).getString("namapasien")%></td>
                     <td><%=pageriwayat.getResultList().get(i).getString("namadokter")%></td>
                     <td><%=pageriwayat.getResultList().get(i).getString("namaperawat")%></td>
@@ -78,7 +77,7 @@ if(noriwayat != null && !noriwayat.trim().equals("")){
                     <td><%=pageriwayat.getResultList().get(i).getString("tglkeluar")%></td>
                     <td>
                     <a href="?act=update_riwayat&noriwayat=<%=pageriwayat.getResultList().get(i).getString("noriwayat")%>"><button class="button-warning pure-button" style="background: rgb(223, 117, 20);">Edit</button></a>
-                    <a href="?act=delete_riwayat&noriwayat=<%=pageriwayat.getResultList().get(i).getString("noriwayat")%>&namapasien=<%=pageriwayat.getResultList().get(i).getString("namapasien")%>"><button class="button-error pure-button" style="background: rgb(202, 60, 60);">Delete</button></a>              
+                    <%-- <a href="?act=delete_riwayat&noriwayat=<%=pageriwayat.getResultList().get(i).getString("noriwayat")%>&namapasien=<%=pageriwayat.getResultList().get(i).getString("namapasien")%>"><button class="button-error pure-button" style="background: rgb(202, 60, 60);">Delete</button></a>               --%>
                     <a href="?act=detail_riwayat&noriwayat=<%=pageriwayat.getResultList().get(i).getString("noriwayat")%>"><button class="button-secondary pure-button" style="background: rgb(66, 184, 221);">Detail</button></a>
                     </td>
                 </tr>

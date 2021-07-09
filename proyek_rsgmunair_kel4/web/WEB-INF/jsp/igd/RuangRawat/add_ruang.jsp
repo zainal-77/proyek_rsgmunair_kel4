@@ -1,4 +1,4 @@
-<%@ page import="rsgm_unair.igd_management.*" %>
+<%@ page import="rsgm_unair.igd_management.RuangRawat.*" %>
 <%@ page import="rsgm_unair.pasien_management.*" %>
 <%@ page import="rsgm_unair.user_management.*" %>
 <%@ page import="rsgm_unair.shared.*" %>
@@ -17,15 +17,15 @@ String action = request.getParameter("action");
 Response resp = null;
 JSONObject user = null;
 
-if(action != null && action.equals("addruang")){
+if(action != null && action.equals("add_ruang")){
 	
-	DataRuangRawat fp = new DataRuangRawat();
-	fp.setNoruangrawat(request.getParameter("noruangrawat"));
-    fp.setNamapasien(request.getParameter("namapasien"));
-    fp.setTiperuangrawat(request.getParameter("tiperuangrawat"));
-    fp.setTglmasuk(request.getParameter("tglmasuk"));
-    fp.setStatus(request.getParameter("status"));
-	resp = RuangManagement.CreateEditRuang(fp);
+	DataRuangRawat rr = new DataRuangRawat();
+	rr.setNoruangrawat(request.getParameter("noruangrawat"));
+    rr.setNamapasien(request.getParameter("namapasien"));
+    rr.setTiperuangrawat(request.getParameter("tiperuangrawat"));
+    rr.setTglmasuk(request.getParameter("tglmasuk"));
+    rr.setStatus(request.getParameter("status"));
+	resp = RuangManagement.CreateEditRuang(rr);
 	
 }
 
@@ -42,9 +42,9 @@ if(action != null && action.equals("addruang")){
 </div>
 <p>
 <div class="pure-u">
-<form class="pure-form pure-form-aligned " method="post" action="?act=addruang" >
+<form class="pure-form pure-form-aligned " method="post" action="?act=add_ruang" >
     <fieldset>
-        <input type="hidden" id="noruangrawat" name="action" value="addruang">
+        <input type="hidden" id="noruangrawat" name="action" value="add_ruang">
         <input type="hidden" id="noruangrawat" name="noruangrawat" value="<% out.print(uniqid); %>">
 
 

@@ -1,4 +1,4 @@
-<%@ page import="rsgm_unair.igd_management.*" %>
+<%@ page import="rsgm_unair.igd_management.RuangRawat.*" %>
 <%@ page import="rsgm_unair.pasien_management.*" %>
 <%@ page import="rsgm_unair.user_management.*" %>
 <%@ page import="rsgm_unair.shared.*" %>
@@ -15,13 +15,13 @@ ruang = RuangManagement.findRuang(id);
 
 
 if(action != null && action.equals("update_ruang")){
-	DataRuangRawat fp = new DataRuangRawat();
-	fp.setNoruangrawat(request.getParameter("noruangrawat"));
-    fp.setNamapasien(request.getParameter("namapasien"));
-    fp.setTiperuangrawat(request.getParameter("tiperuangrawat"));
-    fp.setTglmasuk(request.getParameter("tglmasuk"));
-    fp.setStatus(request.getParameter("status"));
-	resp = RuangManagement.CreateEditRuang(fp);
+	DataRuangRawat rr = new DataRuangRawat();
+	rr.setNoruangrawat(request.getParameter("noruangrawat"));
+    rr.setNamapasien(request.getParameter("namapasien"));
+    rr.setTiperuangrawat(request.getParameter("tiperuangrawat"));
+    rr.setTglmasuk(request.getParameter("tglmasuk"));
+    rr.setStatus(request.getParameter("status"));
+	resp = RuangManagement.CreateEditRuang(rr);
     %>
 <%-- <script>
   window.location.href="?act=detail_pasien&noruangrawat=<%=pasien.getString("noruangrawat")%>";

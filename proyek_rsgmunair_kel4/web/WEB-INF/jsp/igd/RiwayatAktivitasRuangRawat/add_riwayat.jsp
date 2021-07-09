@@ -1,10 +1,10 @@
 <%@ page import="rsgm_unair.pasien_management.*" %>
-<%@ page import="rsgm_unair.user_management.*" %>
-<%@ page import="rsgm_unair.igd_management.*" %>
+<%@ page import="rsgm_unair.igd_management.RiwayatAktivitasRuangRawat.*" %>
+<%@ page import="rsgm_unair.igd_management.RuangRawat.RuangManagement." %>
+<%@ page import="rsgm_unair.igd_management.RuangRawat.DataRuangRawat." %>
 <%@ page import="rsgm_unair.shared.*" %>
 <%@ page import="org.json.*" %>
 <%@ page import="java.util.*" %>
-
 <%
 //Alternatif menggunakan metode generator untuk IDpasien
 String uniqueKey = UUID.randomUUID().toString();
@@ -14,10 +14,13 @@ String uniqid= uniq[1].toUpperCase()+uniq[2].toUpperCase();
 // Untuk Menambah pasien
 String action = request.getParameter("action");
 
-Response resp = null;
-JSONObject user = null;
+String ruang = request.getParameter("noruangrawat");
+JSONObject ruang = RuangManagement.findRuang(id);
 
-if(action != null && action.equals("addRiwayatAktivitas")){
+Response resp = null;
+JSONObject Riwayat = null;
+
+if(action != null && action.equals("add_riwayat")){
 	
 	DataRiwayatAktivitas ra = new DataRiwayatAktivitas();
 	ra.setNoriwayat(request.getParameter("noriwayat"));
@@ -28,7 +31,7 @@ if(action != null && action.equals("addRiwayatAktivitas")){
     ra.setTglmasuk(request.getParameter("tglmasuk"));
     ra.setTglkeluar(request.getParameter("tglkeluar"));
     ra.setObat(request.getParameter("obat"));
-    ra.setAlatkesehatan(request.getParameter("alatkesehatan"));
+    ra.setAlatmedis(request.getParameter("alatmedis"));
 	resp = RiwayatManagement.CreateEditRiwayat(ra);
 	
 }
@@ -46,16 +49,40 @@ if(action != null && action.equals("addRiwayatAktivitas")){
 </div>
 <p>
 <div class="pure-u">
-<form class="pure-form pure-form-aligned " method="post" action="?act=addRiwayatAktivitas" >
+<form class="pure-form pure-form-aligned " method="post" action="?act=add_riwayat" >
     <fieldset>
-        <input type="hidden" id="noriwayat" name="action" value="addpasien">
+        <input type="hidden" id="noriwayat" name="action" value="add_riwayat">
         <input type="hidden" id="noriwayat" name="noriwayat" value="<% out.print(uniqid); %>">
 
 
-        <div class="pure-control-group ">
-            <label for="aligned-namepasien">No RuangRawat</label>
-            <input  class="pure-u-1-2" type="text" name="noruangrawat" id="aligned-namapasien" placeholder=" Isi Nama Pasien"  required=""/>
+        <%-- <div class="pure-control-group ">
+            <label for="aligned-noruangrawat">No RuangRawat</label>
+            <input  class="pure-u-1-2" type="text" name="noruangrawat" id="aligned-noruangrawat" placeholder=" Isi Nama Pasien"  required=""/>
+        </div> --%>
+
+        <div class="pure-control-group">
+            <label for="aligned-noruangrawat">Tipe Golongan Darah</label>
+            
+        <%-- <select>
+            <%
+            while(ra.next())
+            {
+            String Ruang = ra.getString("noruangrawat"); 
+            %>
+            <option value="<%=Ruang %>"><%=Ruang %></option>
+            <%
+            }
+            %>
+        </select> --%>
+
+        <select id="noruangrawat" name="noruangrawat" class="pure-input-1-3">
+            <c:forEach items="${noruangrawat}" var="noruangrawat" >
+            <option value="${noruangrawat.noruangrawat}">${noruangrawat.value}</option>
+            </c:forEach>
+        </select> 
         </div>
+
+
 
 
         <div class="pure-control-group ">
@@ -91,8 +118,8 @@ if(action != null && action.equals("addRiwayatAktivitas")){
 
         
         <div class="pure-control-group ">
-            <label for="aligned-alatkesehatan">Penggunaan Alat Medis</label>
-            <input  class="pure-u-1-2" type="text" name="alatkesehatan" id="aligned-alatkesehatan" placeholder=" Isi Penggunaan Alat Kesehatan"/>
+            <label for="aligned-alatmedis">Penggunaan Alat Medis</label>
+            <input  class="pure-u-1-2" type="text" name="alatmedis" id="aligned-alatmedis" placeholder=" Isi Penggunaan Alat Kesehatan"/>
         </div>
 
 

@@ -28,16 +28,17 @@ if( act != null && act.equals("login")){
 		session.setAttribute("permission_level", ar.getPesan());
 		
 
-		if (ar.getPesan().equals("admin")) {
+		/*if (ar.getPesan().equals("admin")) {
    		 // logic admin
-			response.sendRedirect("")
+		
 		} else if (ar.getPesan().equals("perawat")) {
     	// logic perawat
 		} else {
     	// logic lainnya jika diperlukan
 		}
-		
-		response.sendRedirect("home.jsp");
+		*/
+
+		response.sendRedirect("home_igdutama.jsp");
 		return;
 	}else{
 		errorMessage = ar.getPesan();

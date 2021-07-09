@@ -1,4 +1,4 @@
-package rsgm_unair.igd_management.RiwayatAktivitasRuangRawat;
+package rsgm_unair.igd_management.RuangRawat;
 
 import lombok.AccessLevel;
 import lombok.Setter;
@@ -8,16 +8,13 @@ import lombok.ToString;
 import java.lang.reflect.Field;
 
 @Data
-public class DataRiwayatAktivitas {
-    private String noriwayat;
+public class DataRuangRawat {
     private String noruangrawat;
     private String namapasien;
-    private String namadokter;
-    private String namaperawat;
+    private String tiperuangrawat;
     private String tglmasuk;
-    private String tglkeluar;
-    private String obat;
-    private String alatkesehatan;
+    private String status;
+    private String revruang;
 
     // function dibawah ini adalah alternatif untuk mempersingkat kode dengan hanya
     // memanggil function dibawah ini jika kondisi
