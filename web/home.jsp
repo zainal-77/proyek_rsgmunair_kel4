@@ -1,4 +1,4 @@
-<%@ page import="rsgm_unair.user_management.UserManagement" %>
+<%@ page import="rsgm_unair.proyek_rsgmunair_kel4.UserManagement" %>
 
 <%
 String act = request.getParameter("act");
@@ -24,12 +24,7 @@ if(act == null || act.trim().equals("")){
 						<li class="pure-menu-item">
 							<a href="?act=user" class="pure-menu-link">user</a>
 						</li>
-					
-                        <%-- <% if(((String)session.getAttribute("permission_level")).equals("admin")) { %>
-                            <h4 align="center" style="background-color:red;"><li class="pure-menu-item">
-                            <a href="?act=ruangrawat" class="pure-menu-link">Ruang Rawat</a>
-                            </li></h4>
-                        <% } %> --%>
+				
 
 						<% if(("admin").equals(session.getAttribute("permission_level"))){ %>
                             <h4 align="center" style="background-color:red;"><li class="pure-menu-item">
