@@ -1,16 +1,12 @@
 <%@ page import="rsgm_unair.user_management.UserManagement" %>
+
 <%
 String act = request.getParameter("act");
 if(act == null || act.trim().equals("")){
 	act = "default";
 }
 
-/*String isLogin = (String) session.getAttribute("is_login");
-if(isLogin == null || !isLogin.equals("1")){
-	response.sendRedirect("index.jsp");
-	return;
-}
-*/
+
 %>
 <!DOCTYPE html>
 <html>
@@ -28,6 +24,23 @@ if(isLogin == null || !isLogin.equals("1")){
 						<li class="pure-menu-item">
 							<a href="?act=user" class="pure-menu-link">user</a>
 						</li>
+					
+                        <%-- <% if(((String)session.getAttribute("permission_level")).equals("admin")) { %>
+                            <h4 align="center" style="background-color:red;"><li class="pure-menu-item">
+                            <a href="?act=ruangrawat" class="pure-menu-link">Ruang Rawat</a>
+                            </li></h4>
+                        <% } %> --%>
+
+						<% if(("admin").equals(session.getAttribute("permission_level"))){ %>
+                            <h4 align="center" style="background-color:red;"><li class="pure-menu-item">
+                            <a href="?act=ruangrawat" class="pure-menu-link">Ruang Rawat</a>
+                            </li></h4>
+                        <% } %>
+                        
+						<li class="pure-menu-item">
+							<a href="?act=riwayataktivitas" class="pure-menu-link">Riwayat</a>
+						</li>
+                        
 						<li class="pure-menu-item">
 							<a href="?act=pasien" class="pure-menu-link">pasien</a>
 						</li>
@@ -59,15 +72,15 @@ if(isLogin == null || !isLogin.equals("1")){
 			<% if(act.equals("default")){ %>
 			<h3> Silakan memilih menu </h3>
 			<% }else if(act.equals("logout")){ %>
-			<jsp:include page="WEB-INF/jsp/konfirmasi_logout.jsp"/>
+			<jsp:include page="WEB-INF/jsp/user/konfirmasi_logout.jsp"/>
 			<% }else if(act.equals("info_akun")){ %>
-			<jsp:include page="WEB-INF/jsp/info_akun.jsp"/>
+			<jsp:include page="WEB-INF/jsp/user/info_akun.jsp"/>
 			<% }else if(act.equals("ganti_password")){ %>
-			<jsp:include page="WEB-INF/jsp/ganti_password.jsp"/>
+			<jsp:include page="WEB-INF/jsp/user/ganti_password.jsp"/>
 			<% }else if(act.equals("user")){ %>
-			<jsp:include page="WEB-INF/jsp/user.jsp"/>
+			<jsp:include page="WEB-INF/jsp/user/user.jsp"/>
 			<% }else if(act.equals("delete_user")){ %>
-			<jsp:include page="WEB-INF/jsp/delete_user.jsp"/>
+			<jsp:include page="WEB-INF/jsp/user/delete_user.jsp"/>
 			<% }else if(act.equals("pasien")){ %>
 			<jsp:include page="WEB-INF/jsp/pasien/pasien.jsp"/>
 			<% }else if(act.equals("addpasien")){ %>
@@ -77,11 +90,24 @@ if(isLogin == null || !isLogin.equals("1")){
 			<% }else if(act.equals("update_pasien")){ %>
 			<jsp:include page="WEB-INF/jsp/pasien/update_pasien.jsp"/>
 			<% }else if(act.equals("detail_pasien")){ %>
-			<jsp:include page="WEB-INF/jsp/pasien/detail_pasien.jsp"/>
-			<% } %>
-			
+			<jsp:include page="WEB-INF/jsp/pasien/detail_pasien.jsp"/>  
+			<% }else if(act.equals("riwayataktivitas")){ %>
+			<jsp:include page="WEB-INF/jsp/igd/RiwayatAktivitasRuangRawat/riwayataktivitas.jsp"/>
+			<% }else if(act.equals("add_riwayat")){ %>
+			<jsp:include page="WEB-INF/jsp/igd/RiwayatAktivitasRuangRawat/add_riwayat.jsp"/>  
+			<% }else if(act.equals("update_riwayat")){ %>
+			<jsp:include page="WEB-INF/jsp/igd/RiwayatAktivitasRuangRawat/update_riwayat.jsp"/>  
+			<% }else if(act.equals("detail_riwayat")){ %>
+			<jsp:include page="WEB-INF/jsp/igd/RiwayatAktivitasRuangRawat/detail_riwayat.jsp"/>  
+			<% }else if(act.equals("add_ruang")){ %>
+			<jsp:include page="WEB-INF/jsp/igd/RuangRawat/add_ruang.jsp"/>  
+			<% }else if(act.equals("update_ruang")){ %>
+			<jsp:include page="WEB-INF/jsp/igd/RuangRawat/update_ruang.jsp"/>  
+			<% }else if(act.equals("ruangrawat")){ %>
+			<jsp:include page="WEB-INF/jsp/igd/RuangRawat/ruangrawat.jsp"/>                                                                  					 <%-- MODUL IGD  --%>
+			<% }%>
 
-							<%-- MODUL IGD  --%>
+							
 			</div>
 		</div>
 	
