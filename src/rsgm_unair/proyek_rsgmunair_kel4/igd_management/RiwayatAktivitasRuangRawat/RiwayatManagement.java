@@ -1,6 +1,6 @@
-package rsgm_unair.igd_management.RiwayatAktivitasRuangRawat;
+package rsgm_unair.proyek_rsgmunair_kel4.igd_management.RiwayatAktivitasRuangRawat;
 
-import rsgm_unair.pasien_management.*;
+import rsgm_unair.proyek_rsgmunair_kel4.pasien_management.*;
 import rsgm_unair.config.DatabaseConfig;
 import rsgm_unair.shared.CouchHelper;
 import rsgm_unair.shared.Utils;
@@ -33,7 +33,7 @@ public class RiwayatManagement {
 	public static Response CreateEditRiwayat(DataRiwayatAktivitas ra) throws Exception {
 		Response rd = new Response();
 		rd.setKode(Response.ERROR);
-		rd.setPesan("Coba di cek Ulang field yang belum terisi, Karena Semua wajib Disi.");
+		rd.setPesan("Pastikan Field yang Required ,Wajib Diisi");
 
 		if (ra.checkNull()) {
 			// code here
@@ -63,7 +63,7 @@ public class RiwayatManagement {
 			riwayatClient = null;
 
 			rd.setKode(Response.OK);
-			rd.setPesan("Data Telah Disimpan");
+			rd.setPesan("Data Telah Berhasil Disimpan");
 
 		}
 		return rd;

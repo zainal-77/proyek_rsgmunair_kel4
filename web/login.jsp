@@ -1,5 +1,5 @@
-<%@ page import="rsgm_unair.user_management.UserManagement" %>
-<%@ page import="rsgm_unair.user_management.FormLogin" %>
+<%@ page import="rsgm_unair.proyek_rsgmunair_kel4.user_management.UserManagement" %>
+<%@ page import="rsgm_unair.proyek_rsgmunair_kel4.user_management.FormLogin" %>
 <%@ page import="rsgm_unair.shared.Response" %>
 <%
 String errorMessage = null;
@@ -38,7 +38,7 @@ if( act != null && act.equals("login")){
 		}
 		*/
 
-		response.sendRedirect("home_igdutama.jsp");
+		response.sendRedirect("home.jsp");
 		return;
 	}else{
 		errorMessage = ar.getPesan();

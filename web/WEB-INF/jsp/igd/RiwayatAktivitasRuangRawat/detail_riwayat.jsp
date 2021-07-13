@@ -1,5 +1,4 @@
-<%@ page import="rsgm_unair.Pasien_management.*" %>
-<%@ page import="rsgm_unair.igd_management.RiwayatAktivitasRuangRawat.*" %>
+<%@ page import="rsgm_unair.proyek_rsgmunair_kel4.igd_management.RiwayatAktivitasRuangRawat.*" %>
 <%@ page import="rsgm_unair.shared.*" %>
 <%@ page import="org.json.*" %>
 <%@ page import="java.util.*" %>

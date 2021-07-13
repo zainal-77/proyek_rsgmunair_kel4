@@ -1,4 +1,4 @@
-<%@ page import="rsgm_unair.proyek_rsgmunair_kel4.UserManagement" %>
+<%@ page import="rsgm_unair.proyek_rsgmunair_kel4.user_management.UserManagement" %>
 
 <%
 String act = request.getParameter("act");

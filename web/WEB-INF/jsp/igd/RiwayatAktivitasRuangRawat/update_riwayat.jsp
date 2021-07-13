@@ -1,4 +1,4 @@
-<%@ page import="rsgm_unair.igd_management.RiwayatAktivitasRuangRawat.*" %>
+<%@ page import="rsgm_unair.proyek_rsgmunair_kel4.igd_management.RiwayatAktivitasRuangRawat.*" %>
 <%@ page import="rsgm_unair.shared.*" %>
 <%@ page import="org.json.*" %>
 <%@ page import="java.util.*" %>
@@ -36,7 +36,7 @@ if(action != null && action.equals("update_riwayat")){
  %>
 
 <div class="pure-u">
-<h2>Form Update Data Riwayat Aktivitas Ruang Rawat</h2>
+<h2>Form Edit Data Riwayat Aktivitas Ruang Rawat</h2>
 <div class="pure-u" align="center">
         <% if(resp != null && resp.getKode() == Response.ERROR){ %>
             <h4 align="center" style="background-color:red;"><%=resp.getPesan()%></h4>
@@ -93,7 +93,7 @@ if(action != null && action.equals("update_riwayat")){
         
         <div class="pure-control-group ">
             <label for="aligned-alatmedis">Penggunaan Alat Medis</label>
-            <input  class="pure-u-1-2" type="text" name="alatmedis" id="aligned-alatmedis" placeholder=" Isi Penggunaan Alat Kesehatan" value="<%=riwayat.getString("alatmedis") %>"/>
+            <input  class="pure-u-1-2" type="text" name="alatmedis" id="aligned-alatmedis" placeholder=" Isi Penggunaan Alat Medis" value="<%=riwayat.getString("alatmedis") %>"/>
         </div>
 
 
@@ -103,7 +103,7 @@ if(action != null && action.equals("update_riwayat")){
         </div>
     </fieldset>
 </form>
-        <a href="?act=pasien"><button class="button-warning pure-button" style="background: rgb(223, 117, 20);">Cancel</button></a> 
+        <a href="?act=riwayataktivitas"><button class="button-warning pure-button" style="background: rgb(223, 117, 20);">Cancel</button></a> 
 
 </div>
 </div>

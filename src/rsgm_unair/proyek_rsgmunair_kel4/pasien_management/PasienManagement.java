@@ -1,6 +1,6 @@
-package rsgm_unair.pasien_management;
+package rsgm_unair.proyek_rsgmunair_kel4.pasien_management;
 
-import rsgm_unair.user_management.*;
+import rsgm_unair.proyek_rsgmunair_kel4.user_management.*;
 import rsgm_unair.config.DatabaseConfig;
 import rsgm_unair.shared.CouchHelper;
 import rsgm_unair.shared.Utils;
@@ -72,7 +72,6 @@ public class PasienManagement {
 		}
 		return fr;
 	}
-
 
 	public static Paging getPagingPasien(InputPagingPasien ipp) throws Exception {
 

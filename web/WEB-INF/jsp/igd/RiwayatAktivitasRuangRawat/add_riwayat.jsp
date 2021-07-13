@@ -1,7 +1,6 @@
-<%@ page import="rsgm_unair.pasien_management.*" %>
-<%@ page import="rsgm_unair.igd_management.RiwayatAktivitasRuangRawat.*" %>
-<%@ page import="rsgm_unair.igd_management.RuangRawat.RuangManagement." %>
-<%@ page import="rsgm_unair.igd_management.RuangRawat.DataRuangRawat." %>
+<%@ page import="rsgm_unair.proyek_rsgmunair_kel4.igd_management.RiwayatAktivitasRuangRawat.*" %>
+<%@ page import="rsgm_unair.proyek_rsgmunair_kel4.igd_management.RuangRawat.RuangManagement" %>
+<%@ page import="rsgm_unair.proyek_rsgmunair_kel4.igd_management.RuangRawat.DataRuangRawat" %>
 <%@ page import="rsgm_unair.shared.*" %>
 <%@ page import="org.json.*" %>
 <%@ page import="java.util.*" %>
@@ -13,9 +12,6 @@ String uniqid= uniq[1].toUpperCase()+uniq[2].toUpperCase();
 
 // Untuk Menambah pasien
 String action = request.getParameter("action");
-
-String ruang = request.getParameter("noruangrawat");
-JSONObject ruang = RuangManagement.findRuang(id);
 
 Response resp = null;
 JSONObject Riwayat = null;
@@ -36,7 +32,13 @@ if(action != null && action.equals("add_riwayat")){
 	
 }
 
+List<JSONObject> listall= RuangManagement.getAll();
+
+
 %>
+<head>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+</head>
 <div class="pure-u" align="center">
 <h2>Form Tambah Data Riwayat Aktivitas Ruang Rawat<h2>
 <div class="pure-u" align="center">
@@ -54,36 +56,10 @@ if(action != null && action.equals("add_riwayat")){
         <input type="hidden" id="noriwayat" name="action" value="add_riwayat">
         <input type="hidden" id="noriwayat" name="noriwayat" value="<% out.print(uniqid); %>">
 
-
-        <%-- <div class="pure-control-group ">
+        <div class="pure-control-group ">
             <label for="aligned-noruangrawat">No RuangRawat</label>
             <input  class="pure-u-1-2" type="text" name="noruangrawat" id="aligned-noruangrawat" placeholder=" Isi Nama Pasien"  required=""/>
-        </div> --%>
-
-        <div class="pure-control-group">
-            <label for="aligned-noruangrawat">Tipe Golongan Darah</label>
-            
-        <%-- <select>
-            <%
-            while(ra.next())
-            {
-            String Ruang = ra.getString("noruangrawat"); 
-            %>
-            <option value="<%=Ruang %>"><%=Ruang %></option>
-            <%
-            }
-            %>
-        </select> --%>
-
-        <select id="noruangrawat" name="noruangrawat" class="pure-input-1-3">
-            <c:forEach items="${noruangrawat}" var="noruangrawat" >
-            <option value="${noruangrawat.noruangrawat}">${noruangrawat.value}</option>
-            </c:forEach>
-        </select> 
         </div>
-
-
-
 
         <div class="pure-control-group ">
             <label for="aligned-namepasien">Nama Pasien</label>
@@ -119,7 +95,7 @@ if(action != null && action.equals("add_riwayat")){
         
         <div class="pure-control-group ">
             <label for="aligned-alatmedis">Penggunaan Alat Medis</label>
-            <input  class="pure-u-1-2" type="text" name="alatmedis" id="aligned-alatmedis" placeholder=" Isi Penggunaan Alat Kesehatan"/>
+            <input  class="pure-u-1-2" type="text" name="alatmedis" id="aligned-alatmedis" required="" placeholder=" Isi Penggunaan Alat Kesehatan"/>
         </div>
 
 
@@ -128,9 +104,32 @@ if(action != null && action.equals("add_riwayat")){
             <label for="aligned-cb" class="pure-checkbox">
             <input type="checkbox" id="aligned-cb" /> I&#x27;ve read the terms and conditions</label>
             <button type="submit" class="pure-button pure-button-primary pure-u-1-2">Simpan</button>
-            <a href="?act=pasien"><button class="button-warning pure-input-1-2">Cancel</button></a> 
+            <a href="?act=riwayataktivitas"><button class="button-warning pure-input-1-2">Cancel</button></a> 
             <p></p>
         </div>
     </fieldset>
 </form>
 </div>
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        <%-- 
+      https://www.py4u.net/discuss/288917
+      https://stackoverflow.com/questions/3040645/populating-javascript-array-from-jsp-list
+    --%>
+    var jvals = [
+      <% for(int i=0; i<listall.size(); i++){ %>
+        '<%= listall.get(i).getString("noruangrawat") %>'
+        <% if(i+1 < listall.size()){%>     
+          ,
+        <%}%>
+      <%}%>
+    ];
+
+    $("#aligned-noruangrawat").autocomplete({
+        source: jvals
+    });
+
+</script>
+

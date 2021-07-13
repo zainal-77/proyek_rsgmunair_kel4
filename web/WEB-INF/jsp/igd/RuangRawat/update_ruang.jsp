@@ -1,6 +1,5 @@
-<%@ page import="rsgm_unair.igd_management.RuangRawat.*" %>
-<%@ page import="rsgm_unair.pasien_management.*" %>
-<%@ page import="rsgm_unair.user_management.*" %>
+<%@ page import="rsgm_unair.proyek_rsgmunair_kel4.igd_management.RuangRawat.*" %>
+<%@ page import="rsgm_unair.proyek_rsgmunair_kel4.user_management.*" %>
 <%@ page import="rsgm_unair.shared.*" %>
 <%@ page import="org.json.*" %>
 <%@ page import="java.util.*" %>
@@ -23,9 +22,7 @@ if(action != null && action.equals("update_ruang")){
     rr.setStatus(request.getParameter("status"));
 	resp = RuangManagement.CreateEditRuang(rr);
     %>
-<%-- <script>
-  window.location.href="?act=detail_pasien&noruangrawat=<%=pasien.getString("noruangrawat")%>";
- </script> --%>
+
  <%
     }
  %>
@@ -46,10 +43,7 @@ if(action != null && action.equals("update_ruang")){
         <input type="hidden" id="noruangrawat" name="action" value="update_ruang">
         <input type="hidden" id="noruangrawat" name="_rev" value="<%=ruang.getString("_rev")%>">
         <input type="hidden" id="noruangrawat" name="noruangrawat" value="<%=ruang.getString("noruangrawat")%>">
-        <%-- <div class="pure-control-group">
-            <label for="aligned-kodepasien">Kode Pasien</label>
-            <input class="pure-input-1-3" type="text" disabled="" id="kodepasien" name="kodepasien" value="<%=pasien.getString("kodepasien")%>">
-        </div> --%>
+
     
         <div class="pure-control-group ">
             <label for="aligned-namepasien">Nama Pasien</label>
@@ -80,7 +74,7 @@ if(action != null && action.equals("update_ruang")){
         </div>
     </fieldset>
 </form>
-        <a href="?act=pasien"><button class="button-warning pure-button" style="background: rgb(223, 117, 20);">Cancel</button></a> 
+        <a href="?act=ruangrawat"><button class="button-warning pure-button" style="background: rgb(223, 117, 20);">Cancel</button></a> 
 
 </div>
 </div>

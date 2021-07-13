@@ -1,5 +1,4 @@
-<%@ page import="rsgm_unair.pasien_management.*" %>
-<%@ page import="rsgm_unair.igd_management.RiwayatAktivitasRuangRawat.*" %>
+<%@ page import="rsgm_unair.proyek_rsgmunair_kel4.igd_management.RiwayatAktivitasRuangRawat.*" %>
 <%@ page import="rsgm_unair.shared.*" %>
 <%@ page import="org.json.*" %>
 <%@ page import="java.util.*" %>
@@ -37,10 +36,54 @@ if(noriwayat != null && !noriwayat.trim().equals("")){
 
 %>
 
+<style>
+.vl {
+  border-left: 6px solid green;
+  height: 500px;
+}
+</style>
+
+
+
 
 <div class="pure-g">
+			<div class="pure-u-1-5" align="left">
+				<div class="pure-menu pure-menu-vertical">
+						<ul class="pure-menu-list">
+						<li class="pure-menu-item">
+							<a href="?act=user" class="pure-menu-link">user</a>
+						</li>
+						
+                        
+						<li class="pure-menu-item">
+							<a href="?act=riwayataktivitas" class="pure-menu-link">Riwayat</a>
+						</li>
+                        
+						<li class="pure-menu-item">
+							<a href="?act=pasien" class="pure-menu-link">pasien</a>
+						</li>
+						<li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover">
+							<a href="#" class="pure-menu-link">akun</a>
+							<ul class="pure-menu-children">
+								<li class="pure-menu-item">
+									<a href="?act=info_akun" class="pure-menu-link">info akun</a>
+								</li>
+								<li class="pure-menu-item">
+									<a href="?act=ganti_password" class="pure-menu-link">ganti password</a>
+								</li>
+							</ul>
+						</li>
+						<li class="pure-menu-item">
+							<a href="?act=logout" class="pure-menu-link">logout</a>
+						</li>
+					</ul>	
+				</div>
+			</div>
+		
 
-<div class="pure-u-1-1" style="align-items:center;">
+<div class="vl"></div>
+
+<div class="pure-u-2-3" style="align-items:center;">
         <form action="?act=riwayataktivitas" method="post" class="pure-form pure-u-1-2">
             <input type="hidden" name="action" value="cari_riwayat" />
             <input type="text" name="riwayat_search_key" class="pure-input-rounded" placeholder="noriwayat" value="<%=searchKey%>" />
@@ -97,3 +140,5 @@ if(noriwayat != null && !noriwayat.trim().equals("")){
         <p>menampilkan <%=pageriwayat.getResultFrom()%> - <%=pageriwayat.getResultTo()%> dari total <%=pageriwayat.getTotalResults()%></p>
     </div>        
 </div>
+
+

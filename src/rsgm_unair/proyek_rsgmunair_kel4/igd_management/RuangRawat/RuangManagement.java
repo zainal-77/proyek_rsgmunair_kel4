@@ -1,6 +1,6 @@
-package rsgm_unair.igd_management.RuangRawat;
+package rsgm_unair.proyek_rsgmunair_kel4.igd_management.RuangRawat;
 
-import rsgm_unair.pasien_management.*;
+import rsgm_unair.proyek_rsgmunair_kel4.pasien_management.*;
 import rsgm_unair.config.DatabaseConfig;
 import rsgm_unair.shared.CouchHelper;
 import rsgm_unair.shared.Utils;
@@ -33,7 +33,7 @@ public class RuangManagement {
 	public static Response CreateEditRuang(DataRuangRawat rr) throws Exception {
 		Response rp = new Response();
 		rp.setKode(Response.ERROR);
-		rp.setPesan("Coba di cek Ulang field yang belum terisi, Karena Semua wajib Disi.");
+		rp.setPesan("Pastikan Field yang Required ,Wajib Diisi");
 
 		if (rr.checkNull()) {
 			// code here
@@ -59,7 +59,7 @@ public class RuangManagement {
 			RuangClient = null;
 
 			rp.setKode(Response.OK);
-			rp.setPesan("Data Telah Disimpan");
+			rp.setPesan("Data Telah Berhasil Disimpan");
 
 		}
 		return rp;
@@ -118,6 +118,24 @@ public class RuangManagement {
 		RuangClient = null;
 
 		return data;
+	}
+
+	public static List<JSONObject> getAll() throws Exception {
+
+		CouchdbClient RuangClient = CouchHelper.createClient();
+
+		String param = "include_docs=true";
+
+		JSONObject resultRaw = RuangClient.view("ruang", "all", param);
+		JSONArray result = resultRaw.getJSONArray("rows");
+
+		List<JSONObject> resultData = new ArrayList<JSONObject>();
+
+		for (int i = 0; i < result.length(); i++) {
+			JSONObject obj1 = result.getJSONObject(i);
+			resultData.add(obj1.getJSONObject("doc"));
+		}
+		return resultData;
 	}
 
 	public static JSONObject createNewRuang() {

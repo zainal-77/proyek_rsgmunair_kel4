@@ -1,3 +1,3 @@
 <%
-response.sendRedirect("home_igdutama.jsp");
+response.sendRedirect("home.jsp");
 %>

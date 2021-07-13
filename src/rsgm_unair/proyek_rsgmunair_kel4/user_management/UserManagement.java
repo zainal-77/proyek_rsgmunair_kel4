@@ -1,4 +1,4 @@
-package rsgm_unair.user_management;
+package rsgm_unair.proyek_rsgmunair_kel4.user_management;
 
 import rsgm_unair.config.DatabaseConfig;
 import rsgm_unair.shared.CouchHelper;
@@ -67,10 +67,9 @@ public class UserManagement {
 				if (passwordHashed.equals(user.getString("password"))) {
 					ar.setPesan("");
 					ar.setKode(Response.OK);
-					if(user.getString("role").equals("perawat")){
+					if (user.getString("role").equals("perawat")) {
 						ar.setPesan("perawat");
-					}
-					else {
+					} else {
 						ar.setPesan("admin");
 					}
 				}

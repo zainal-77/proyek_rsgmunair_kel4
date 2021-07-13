@@ -1,4 +1,4 @@
-package rsgm_unair.pasien_management;
+package rsgm_unair.proyek_rsgmunair_kel4.pasien_management;
 
 import lombok.AccessLevel;
 import lombok.Setter;

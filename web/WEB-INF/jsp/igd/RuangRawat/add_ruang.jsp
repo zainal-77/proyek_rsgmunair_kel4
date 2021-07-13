@@ -1,17 +1,16 @@
-<%@ page import="rsgm_unair.igd_management.RuangRawat.*" %>
-<%@ page import="rsgm_unair.pasien_management.*" %>
-<%@ page import="rsgm_unair.user_management.*" %>
+<%@ page import="rsgm_unair.proyek_rsgmunair_kel4.igd_management.RuangRawat.*" %>
+<%@ page import="rsgm_unair.proyek_rsgmunair_kel4.user_management.*" %>
 <%@ page import="rsgm_unair.shared.*" %>
 <%@ page import="org.json.*" %>
 <%@ page import="java.util.*" %>
 
 <%
-//Alternatif menggunakan metode generator untuk IDpasien
+//Alternatif menggunakan metode generator untuk No Ruang Rawat
 String uniqueKey = UUID.randomUUID().toString();
 String [] uniq=uniqueKey.split("-");
 String uniqid= uniq[1].toUpperCase()+uniq[2].toUpperCase();
 
-// Untuk Menambah pasien
+// Untuk Menambah ruang
 String action = request.getParameter("action");
 
 Response resp = null;
@@ -25,8 +24,7 @@ if(action != null && action.equals("add_ruang")){
     rr.setTiperuangrawat(request.getParameter("tiperuangrawat"));
     rr.setTglmasuk(request.getParameter("tglmasuk"));
     rr.setStatus(request.getParameter("status"));
-	resp = RuangManagement.CreateEditRuang(rr);
-	
+	resp = RuangManagement.CreateEditRuang(rr);	
 }
 
 %>
@@ -50,32 +48,31 @@ if(action != null && action.equals("add_ruang")){
 
         <div class="pure-control-group ">
             <label for="aligned-namepasien">Nama Pasien</label>
-            <input  class="pure-u-1-2" type="text" name="namapasien" id="aligned-namapasien" placeholder=" Isi Nama Pasien"  required=""/>
+            <input  class="pure-u-1-2" type="text" name="namapasien" id="aligned-namapasien" placeholder=" Isi Nama Pasien"  />
         </div>
 
        <div class="pure-control-group">
             <label for="aligned-tiperuangrawat">Tipe Ruang</label>
-            <input class= class="pure-u-1-2" type="text" name="tiperuangrawat"  required=""  id="aligned-tiperuangrawat" placeholder=" Isi Tipe Ruang" />
+            <input class= class="pure-u-1-2" type="text" name="tiperuangrawat" required=""   id="aligned-tiperuangrawat" placeholder=" Isi Tipe Ruang" />
         </div>
 
         <div class="pure-control-group">
             <label for="aligned-tglmasuk">Tanggal Masuk</label>
-            <input class="pure-input-1-2" type="date" name="tglmasuk"  id="aligned-tglmasuk" placeholder=" Isi Tanggal Masuk Pasien" />
+            <input class="pure-input-1-2" type="date" name="tglmasuk"    id="aligned-tglmasuk" placeholder=" Isi Tanggal Masuk Pasien" />
         </div>
 
         <div class="pure-control-group">
-            <label for="aligned-status">Diagnosa Penyakit</label>
-            <input class="pure-input-1-2" type="text" name="status"   id="aligned-status" placeholder=" Isi Status Ruang Rawat" />
+            <label for="aligned-status">Status Ruang</label>
+            <input class="pure-input-1-2" type="text" name="status"  required=""  id="aligned-status" placeholder=" Isi Status Ruang Rawat" />
         </div>
      
 
 
-     <%-- COBA DIPIKIR KEMBALI < ITU REDIRECT KE MANA ??????????????? --%>
         <div class="pure-controls">
             <label for="aligned-cb" class="pure-checkbox">
             <input type="checkbox" id="aligned-cb" /> I&#x27;ve read the terms and conditions</label>
             <button type="submit" class="pure-button pure-button-primary pure-u-1-2">Simpan</button>
-            <a href="?act=pasien"><button class="button-warning pure-input-1-2">Cancel</button></a> 
+            <a href="?act=ruangrawat"><button class="button-warning pure-input-1-2">Cancel</button></a> 
             <p></p>
         </div>
     </fieldset>

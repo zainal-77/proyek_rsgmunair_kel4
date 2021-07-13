@@ -1,5 +1,5 @@
-<%@ page import="rsgm_unair.pasien_management.*" %>
-<%@ page import="rsgm_unair.user_management.*" %>
+<%@ page import="rsgm_unair.proyek_rsgmunair_kel4.pasien_management.*" %>
+<%@ page import="rsgm_unair.proyek_rsgmunair_kel4.user_management.*" %>
 <%@ page import="rsgm_unair.shared.*" %>
 <%@ page import="org.json.*" %>
 <%@ page import="java.util.*" %>

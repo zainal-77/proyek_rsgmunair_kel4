@@ -1,5 +1,4 @@
-<%@ page import="rsgm_unair.pasien_management.*" %>
-<%@ page import="rsgm_unair.igd_management.RuangRawat.*" %>
+<%@ page import="rsgm_unair.proyek_rsgmunair_kel4.igd_management.RuangRawat.*" %>
 <%@ page import="rsgm_unair.shared.*" %>
 <%@ page import="org.json.*" %>
 <%@ page import="java.util.*" %>
@@ -73,8 +72,6 @@ if(noruangrawat != null && !noruangrawat.trim().equals("")){
                     <td><%=pageRuang.getResultList().get(i).getString("status")%></td>
                     <td>
                     <a href="?act=update_ruang&noruangrawat=<%=pageRuang.getResultList().get(i).getString("noruangrawat")%>"><button class="button-warning pure-button" style="background: rgb(223, 117, 20);">Edit</button></a>
-                    <%-- <a href="?act=delete_ruang&noruangrawat=<%=pageRuang.getResultList().get(i).getString("noruangrawat")%>&namapasien=<%=pageRuang.getResultList().get(i).getString("namaruang")%>"><button class="button-error pure-button" style="background: rgb(202, 60, 60);">Delete</button></a>              
-                    <a href="?act=detail_ruang&noruangrawat=<%=pageRuang.getResultList().get(i).getString("noruangrawat")%>"><button class="button-secondary pure-button" style="background: rgb(66, 184, 221);">Detail</button></a> --%>
                     </td>
                 </tr>
                 <% } %>

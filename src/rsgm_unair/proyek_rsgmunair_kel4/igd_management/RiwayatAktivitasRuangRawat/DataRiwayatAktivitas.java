@@ -1,4 +1,4 @@
-package rsgm_unair.igd_management.RiwayatAktivitasRuangRawat;
+package rsgm_unair.proyek_rsgmunair_kel4.igd_management.RiwayatAktivitasRuangRawat;
 
 import lombok.AccessLevel;
 import lombok.Setter;
