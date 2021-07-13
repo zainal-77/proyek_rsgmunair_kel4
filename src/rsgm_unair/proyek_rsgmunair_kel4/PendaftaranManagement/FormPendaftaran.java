@@ -1,4 +1,4 @@
-package rsgm_unair.proyek_webapps_kel4.PendaftaranManagement;
+package rsgm_unair.proyek_rsgmunair_kel4.PendaftaranManagement;
 
 import lombok.AccessLevel;
 import lombok.Setter;

@@ -33,6 +33,7 @@ if( act != null && act.equals("login")){
 		
 		} else if (ar.getPesan().equals("perawat")) {
     	// logic perawat
+		} else if (ar.getPesan().equals("pasien")) {
 		} else {
     	// logic lainnya jika diperlukan
 		}

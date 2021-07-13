@@ -1,4 +1,4 @@
-<%@ page import="rsgm_unair.proyek_webapps_kel4.PendaftaranManagement.*" %>
+<%@ page import="rsgm_unair.proyek_rsgmunair_kel4.PendaftaranManagement.*" %>
 <%@ page import="rsgm_unair.shared.*" %>
 <%@ page import="org.json.*" %>
 <%@ page import="java.util.*" %>
@@ -41,10 +41,11 @@ PagingDaftarPasien pagePendaftaran = PendaftaranManagement.getPagingDaftarPasien
 	<table class="pure-table">
 		<thead>
 			<tr>
-				<th>#</th>
+				<th>No.</th>
 				<th>Nama</th>
 				<th>Tanggal Daftar</th>
 				<th>Keluhan</th>
+				<th>Action</th>
 			</tr>
 		</thead>
 		<tbody>

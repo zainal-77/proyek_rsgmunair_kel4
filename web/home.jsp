@@ -30,7 +30,14 @@ if(act == null || act.trim().equals("")){
                             <h4 align="center" style="background-color:red;"><li class="pure-menu-item">
                             <a href="?act=ruangrawat" class="pure-menu-link">Ruang Rawat</a>
                             </li></h4>
-                        <% } %>
+							<li class="pure-menu-item">
+								<a href="?act=pendaftaran" class="pure-menu-link">Pendaftaran</a>
+							</li>
+                        <% } else if(("pasien").equals(session.getAttribute("permission_level"))){ %>
+						<li class="pure-menu-item">
+							<a href="?act=new_pendaftaran" class="pure-menu-link">daftar</a>
+						</li>
+						<% } %>
                         
 						<li class="pure-menu-item">
 							<a href="?act=riwayataktivitas" class="pure-menu-link">Riwayat</a>
@@ -100,6 +107,14 @@ if(act == null || act.trim().equals("")){
 			<jsp:include page="WEB-INF/jsp/igd/RuangRawat/update_ruang.jsp"/>  
 			<% }else if(act.equals("ruangrawat")){ %>
 			<jsp:include page="WEB-INF/jsp/igd/RuangRawat/ruangrawat.jsp"/>                                                                  					 <%-- MODUL IGD  --%>
+			<% }else if(act.equals("pendaftaran")){ %>
+			<jsp:include page="WEB-INF/jsp/pendaftaran/pendaftaran.jsp"/>
+			<% }else if(act.equals("new_pendaftaran")){ %>
+			<jsp:include page="WEB-INF/jsp/pendaftaran/new_pendaftaran.jsp"/>
+			<% }else if(act.equals("detail_pendaftaran")){ %>
+			<jsp:include page="WEB-INF/jsp/pendaftaran/detail_pendaftaran.jsp"/>
+			<% }else if(act.equals("edit_pendaftaran")){ %>
+			<jsp:include page="WEB-INF/jsp/pendaftaran/edit_pendaftaran.jsp"/>
 			<% }%>
 
 							

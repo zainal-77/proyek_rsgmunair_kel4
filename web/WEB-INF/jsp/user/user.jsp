@@ -84,6 +84,7 @@ if(user == null){
                     <option <% if(user.getString("role").equals("mahasiswa")){ %> selected="selected" <% } %>>mahasiswa</option>
                     <option <% if(user.getString("role").equals("keuangan")){ %> selected="selected" <% } %>>keuangan</option>
 					<option <% if(user.getString("role").equals("perawat")){ %> selected="selected" <% } %>>perawat</option>
+					<option <% if(user.getString("role").equals("pasien")){ %> selected="selected" <% } %>>pasien</option>
 				
                 </select>
             </div>
