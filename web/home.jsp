@@ -29,6 +29,15 @@ if(act == null || act.trim().equals("")){
 					<a href="home.jsp" class="pure-menu-heading pure-menu-link"><img class="pure-img" width="100" src="img/logo.png"></a>
 					<ul class="pure-menu-list">
 						<li class="pure-menu-item">
+							<a href="?act=daftarAntri" class="pure-menu-link">daftar</a>
+						</li>					
+						<li class="pure-menu-item">
+							<a href="?act=antri" class="pure-menu-link">antri</a>
+						</li>					
+						<li class="pure-menu-item">
+							<a href="?act=list" class="pure-menu-link">list</a>
+						</li>		
+						<li class="pure-menu-item">
 							<a href="?act=user" class="pure-menu-link">user</a>
 						</li>
 				
@@ -171,6 +180,14 @@ if(act == null || act.trim().equals("")){
 			<jsp:include page="WEB-INF/jsp/pendaftaran/detail_pendaftaran.jsp"/>
 			<% }else if(act.equals("edit_pendaftaran")){ %>
 			<jsp:include page="WEB-INF/jsp/pendaftaran/edit_pendaftaran.jsp"/>
+			<% }else if(act.equals("antri")){ %>
+			<jsp:include page="WEB-INF/jsp/laboratorium/Antri.jsp"/>
+			<% }else if(act.equals("daftarAntri")){ %>
+			<jsp:include page="WEB-INF/jsp/laboratorium/DaftarAntri.jsp"/>
+			<% }else if(act.equals("entry")){ %>
+			<jsp:include page="WEB-INF/jsp/laboratorium/Entry.jsp"/>		
+			<% }else if(act.equals("list")){ %>
+			<jsp:include page="WEB-INF/jsp/laboratorium/List.jsp"/>					
 			<% }%>
 
 			
