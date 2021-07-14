@@ -1,4 +1,4 @@
-package rsgm_unair.proyek_webapps_kel4.ListAntrianPasien;
+package rsgm_unair.proyek_rsgmunair_kel4.ListAntrianPasien;
 
 import lombok.AccessLevel;
 import lombok.Setter;

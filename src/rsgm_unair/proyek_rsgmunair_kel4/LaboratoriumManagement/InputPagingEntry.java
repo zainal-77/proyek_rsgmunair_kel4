@@ -5,10 +5,10 @@ import lombok.Setter;
 import lombok.Data;
 import lombok.ToString;
 
-@Data public class FormEntry{
-	
-	private String nik;
-	private String diagnosa;
-	private String rujukan;
-	
+@Data public class InputPagingEntry{
+
+	private int perPage = 10;
+	private int offset = 0;
+	private String searchKey;
+
 }
