@@ -1,4 +1,4 @@
-package rsgm_unair.proyek_webapps_kel4.LaboratoriumManagement;
+package rsgm_unair.proyek_rsgmunair_kel4.LaboratoriumManagement;
 
 import rsgm_unair.config.DatabaseConfig;
 import rsgm_unair.shared.CouchHelper;

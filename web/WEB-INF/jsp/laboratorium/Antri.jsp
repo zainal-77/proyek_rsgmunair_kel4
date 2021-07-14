@@ -1,4 +1,4 @@
-<%@ page import="rsgm_unair.proyek_webapps_kel4.LaboratoriumManagement.*" %>
+<%@ page import="rsgm_unair.proyek_rsgmunair_kel4.LaboratoriumManagement.*" %>
 <%@ page import="rsgm_unair.shared.*" %>
 <%@ page import="org.json.*" %>
 <%@ page import="java.util.*" %>
@@ -44,7 +44,8 @@ PagingAntri pageAntri = LaboratoriumManagement.getPagingAntri(ipa);
 				<td><%=pageAntri.getResultList().get(i).getString("usia")%></td>								
 				<td><%=pageAntri.getResultList().get(i).getString("askes")%></td>
 				<td>
-					<a href="web/WEB-INF/jsp/laboratorium/Entry.jsp"=<%=pageAntri.getResultList().get(i).getString("nama")%>">Selesai</a>
+					<a href="?act=entry&nama=<%=pageAntri.getResultList().get(i).getString("nama")%>">Selesai</a>
+					
 				</td>
 			</tr>
 		<% } %>

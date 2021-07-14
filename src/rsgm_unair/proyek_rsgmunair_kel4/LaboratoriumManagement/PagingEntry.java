@@ -9,7 +9,7 @@ import lombok.Data;
 import lombok.ToString;
 
 
-@Data public class PagingAntri{
+@Data public class PagingEntry{
 
     private List<JSONObject> resultList;
     private int totalResults;

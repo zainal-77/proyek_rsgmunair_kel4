@@ -1,11 +1,11 @@
-package rsgm_unair.proyek_rsgmunair_kel4.LaboratoriumManagement;
+package rsgm_unair.proyek_rsgmunair_kel4.ApotekManagement;
 
 import lombok.AccessLevel;
 import lombok.Setter;
 import lombok.Data;
 import lombok.ToString;
 
-@Data public class InputPagingAntri{
+@Data public class InputPagingForumPasien{
 
 	private int perPage = 10;
 	private int offset = 0;

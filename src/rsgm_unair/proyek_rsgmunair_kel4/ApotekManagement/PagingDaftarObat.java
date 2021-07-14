@@ -1,4 +1,4 @@
-package rsgm_unair.proyek_rsgmunair_kel4.LaboratoriumManagement;
+package rsgm_unair.proyek_rsgmunair_kel4.ApotekManagement;
 
 import java.util.*;
 import org.json.*;
@@ -9,7 +9,7 @@ import lombok.Data;
 import lombok.ToString;
 
 
-@Data public class PagingAntri{
+@Data public class PagingDaftarObat{
 
     private List<JSONObject> resultList;
     private int totalResults;
