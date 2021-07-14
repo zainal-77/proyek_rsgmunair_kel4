@@ -29,6 +29,9 @@ if(act == null || act.trim().equals("")){
 					<a href="home.jsp" class="pure-menu-heading pure-menu-link"><img class="pure-img" width="100" src="img/logo.png"></a>
 					<ul class="pure-menu-list">
 						<li class="pure-menu-item">
+							<a href="?act=apotek" class="pure-menu-link">apotek</a>
+						</li>
+						<li class="pure-menu-item">
 							<a href="?act=daftarAntri" class="pure-menu-link">daftar</a>
 						</li>					
 						<li class="pure-menu-item">
@@ -187,7 +190,19 @@ if(act == null || act.trim().equals("")){
 			<% }else if(act.equals("entry")){ %>
 			<jsp:include page="WEB-INF/jsp/laboratorium/Entry.jsp"/>		
 			<% }else if(act.equals("list")){ %>
-			<jsp:include page="WEB-INF/jsp/laboratorium/List.jsp"/>					
+			<jsp:include page="WEB-INF/jsp/laboratorium/List.jsp"/>
+			<% }else if(act.equals("apotek")){ %>
+			<jsp:include page="WEB-INF/jsp/apotek/formpasien.jsp"/>
+			<% }else if(act.equals("apotek")){ %>
+			<jsp:include page="WEB-INF/jsp/apotek/menuapoteker.jsp"/>
+			<% }else if(act.equals("order")){ %>
+			<jsp:include page="WEB-INF/jsp/apotek/order.jsp"/>
+			<% }else if(act.equals("daftarobat")){ %>
+			<jsp:include page="WEB-INF/jsp/apotek/daftarobat.jsp"/>
+			<% }else if(act.equals("laporanbulanan")){ %>
+			<jsp:include page="WEB-INF/jsp/apotek/laporanbulanan.jsp"/>
+			<% }else if(act.equals("validasiorder")){ %>
+			<jsp:include page="WEB-INF/jsp/apotek/validasiorder.jsp"/>
 			<% }%>
 
 			
