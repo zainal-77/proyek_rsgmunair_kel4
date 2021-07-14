@@ -43,8 +43,12 @@ if(action != null && action.equals("add_ruang")){
 <form class="pure-form pure-form-aligned " method="post" action="?act=add_ruang" >
     <fieldset>
         <input type="hidden" id="noruangrawat" name="action" value="add_ruang">
-        <input type="hidden" id="noruangrawat" name="noruangrawat" value="<% out.print(uniqid); %>">
+        <%-- <input type="hidden" id="noruangrawat" name="noruangrawat" value="<% out.print(uniqid); %>"> --%>
 
+        <div class="pure-control-group ">
+            <label for="aligned-noruangrawat">No RuangRawat</label>
+            <input  class="pure-u-1-2" type="text" name="noruangrawat" id="aligned-noruangrawat" placeholder=" Isi No Ruang Rawat"  />
+        </div>
 
         <div class="pure-control-group ">
             <label for="aligned-namepasien">Nama Pasien</label>

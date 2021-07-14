@@ -27,7 +27,7 @@ if(action != null && action.equals("update_ruang")){
     }
  %>
 
-<div class="pure-u">
+<div class="pure-u" align="center">
 <h2>Form Update Data Ruang Rawat</h2>
 <div class="pure-u" align="center">
         <% if(resp != null && resp.getKode() == Response.ERROR){ %>
@@ -42,9 +42,14 @@ if(action != null && action.equals("update_ruang")){
     <fieldset>
         <input type="hidden" id="noruangrawat" name="action" value="update_ruang">
         <input type="hidden" id="noruangrawat" name="_rev" value="<%=ruang.getString("_rev")%>">
-        <input type="hidden" id="noruangrawat" name="noruangrawat" value="<%=ruang.getString("noruangrawat")%>">
+        <%-- <input type="hidden" id="noruangrawat" name="noruangrawat" value="<%=ruang.getString("noruangrawat")%>"> --%>
+        
+        <div class="pure-control-group ">
+            <label for="aligned-noruangrawat">No RuangRawat</label>
+            <input  class="pure-u-1-2" type="text" name="noruangrawat" id="aligned-noruangrawat" placeholder=" Isi No RuangRawat"  value="<%=ruang.getString("noruangrawat") %>"/>
+        </div>
 
-    
+        
         <div class="pure-control-group ">
             <label for="aligned-namepasien">Nama Pasien</label>
             <input  class="pure-u-1-2" type="text" name="namapasien" id="aligned-namapasien" placeholder=" Isi Nama Pasien"  value="<%=ruang.getString("namapasien") %>"/>

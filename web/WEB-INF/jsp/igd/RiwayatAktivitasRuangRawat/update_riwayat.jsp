@@ -28,9 +28,9 @@ if(action != null && action.equals("update_riwayat")){
 	
 
 %>
-<script>
+<%-- <script>
   window.location.href="?act=detail_riwayat&noriwayat=<%=riwayat.getString("noriwayat")%>";
- </script>
+ </script> --%>
  <%
     }
  %>
@@ -50,7 +50,11 @@ if(action != null && action.equals("update_riwayat")){
     <fieldset>
         <input type="hidden" id="noriwayat" name="action" value="update_riwayat">
         <input type="hidden" id="noriwayat" name="_rev" value="<%=riwayat.getString("_rev")%>">
-        <input type="hidden" id="noriwayat" name="noriwayat" value="<%=riwayat.getString("noriwayat")%>">
+       
+        <div class="pure-control-group ">
+            <label for="aligned-noriwayat">No Riwayat</label>
+            <input  class="pure-u-1-2" type="text" name="noriwayat" id="aligned-noriwayat" placeholder=" Isi No Riwayat"  value="<%=riwayat.getString("noriwayat") %>"/>
+        </div>
 
 
         <div class="pure-control-group ">

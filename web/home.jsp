@@ -32,7 +32,7 @@ if(act == null || act.trim().equals("")){
 							<a href="?act=user" class="pure-menu-link">user</a>
 						</li>
 				
-
+<%-- 
 						<% if(("admin").equals(session.getAttribute("permission_level"))){ %>
                             <h4 align="center" style="background-color:red;"><li class="pure-menu-item">
                             <a href="?act=ruangrawat" class="pure-menu-link">Ruang Rawat</a>
@@ -49,7 +49,7 @@ if(act == null || act.trim().equals("")){
                         
 						<li class="pure-menu-item">
 							<a href="?act=riwayataktivitas" class="pure-menu-link">Riwayat</a>
-						</li>
+						</li> --%>
                         
 						<li class="pure-menu-item">
 							<a href="?act=pasien" class="pure-menu-link">pasien</a>
@@ -83,34 +83,31 @@ if(act == null || act.trim().equals("")){
 				<div class="pure-menu pure-menu-vertical">
 						<ul class="pure-menu-list">
 						<li class="pure-menu-item">
-							<a href="?act=user" class="pure-menu-link">user</a>
+							<a href="?act=pendaftaran" class="pure-menu-link">Pendaftaran</a>
 						</li>
 						
-                        
 						<li class="pure-menu-item">
-							<a href="?act=riwayataktivitas" class="pure-menu-link">Riwayat</a>
+							<a href="?act=riwayataktivitas" class="pure-menu-link">Apotek</a>
 						</li>
                         
 						<li class="pure-menu-item">
-							<a href="?act=pasien" class="pure-menu-link">pasien</a>
+							<a href="?act=pasien" class="pure-menu-link">Laboratorium</a>
 						</li>
 						<li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover">
-							<a href="#" class="pure-menu-link">akun</a>
+							<a href="#" class="pure-menu-link">IGD</a>
 							<ul class="pure-menu-children-vertical">
-						<% if(("admin").equals(session.getAttribute("permission_level"))){ %>
+						<%if(("admin").equals(session.getAttribute("permission_level"))){ %>
                             <li class="pure-menu-item">
                             <a href="?act=ruangrawat" class="pure-menu-link">Ruang Rawat</a>
                             </li>
 							<% }%>
                             </li>
 								<li class="pure-menu-item">
-									<a href="?act=ganti_password" class="pure-menu-link">ganti password</a>
+									<a href="?act=riwayataktivitas" class="pure-menu-link">RiwayatAktivitas</a>
 								</li>
 							</ul>
 						</li>
-						<li class="pure-menu-item">
-							<a href="?act=logout" class="pure-menu-link">logout</a>
-						</li>
+					
 					</ul>	
 				</div>
 			</div>
@@ -121,7 +118,7 @@ if(act == null || act.trim().equals("")){
 		
 			<div class="pure-u-16-24" align="center">
 			<% if(act.equals("default")){ %>
-			<h3> Silakan memilih menu </h3>
+			<h3> Halaman Utama IGD </h3>
 			<% }else if(act.equals("logout")){ %>
 			<jsp:include page="WEB-INF/jsp/user/konfirmasi_logout.jsp"/>
 			<% }else if(act.equals("info_akun")){ %>

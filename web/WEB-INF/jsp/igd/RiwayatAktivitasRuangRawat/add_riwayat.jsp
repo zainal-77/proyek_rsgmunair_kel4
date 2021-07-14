@@ -54,11 +54,15 @@ List<JSONObject> listall= RuangManagement.getAll();
 <form class="pure-form pure-form-aligned " method="post" action="?act=add_riwayat" >
     <fieldset>
         <input type="hidden" id="noriwayat" name="action" value="add_riwayat">
-        <input type="hidden" id="noriwayat" name="noriwayat" value="<% out.print(uniqid); %>">
+        <%-- <input type="hidden" id="noriwayat" name="noriwayat" value="<% out.print(uniqid); %>"> --%>
+        <div class="pure-control-group ">
+            <label for="aligned-noriwayat">No Riwayat</label>
+            <input  class="pure-u-1-2" type="text" name="noriwayat" id="aligned-noriwayat" placeholder=" Isi No Riwayat"  />
+        </div>
 
         <div class="pure-control-group ">
             <label for="aligned-noruangrawat">No RuangRawat</label>
-            <input  class="pure-u-1-2" type="text" name="noruangrawat" id="aligned-noruangrawat" placeholder=" Isi Nama Pasien"  required=""/>
+            <input  class="pure-u-1-2" type="text" name="noruangrawat" id="aligned-noruangrawat" placeholder=" Isi No RuangRawat"  />
         </div>
 
         <div class="pure-control-group ">
@@ -68,7 +72,7 @@ List<JSONObject> listall= RuangManagement.getAll();
 
         <div class="pure-control-group ">
             <label for="aligned-namadokter">Nama Dokter</label>
-            <input  class="pure-u-1-2" type="text" name="namadokter" id="aligned-namadokter" placeholder=" Isi Nama Dokter"  required=""/>
+            <input  class="pure-u-1-2" type="text" name="namadokter" id="aligned-namadokter" placeholder=" Isi Nama Dokter"  />
         </div>
 
         <div class="pure-control-group ">
