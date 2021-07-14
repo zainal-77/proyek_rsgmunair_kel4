@@ -101,6 +101,13 @@ if(act == null || act.trim().equals("")){
                             <li class="pure-menu-item">
                             <a href="?act=ruangrawat" class="pure-menu-link">Ruang Rawat</a>
                             </li>
+							<li class="pure-menu-item">
+								<a href="?act=pendaftaran" class="pure-menu-link">Pendaftaran</a>
+							</li>
+							<% } else if(("pasien").equals(session.getAttribute("permission_level"))){%>
+							<li class="pure-menu-item">
+								<a href="?act=new_pendaftaran" class="pure-menu-link">daftar</a>
+							</li>
 							<% }%>
                             </li>
 								<li class="pure-menu-item">
