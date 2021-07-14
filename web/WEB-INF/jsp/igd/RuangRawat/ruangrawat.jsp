@@ -46,7 +46,13 @@ if(noruangrawat != null && !noruangrawat.trim().equals("")){
             <input type="submit" class="pure-button pure-button-primary" value="cari" />
         </form>
         <a href="?act=add_ruang" class="pure-u-1-3"><button class="button-success pure-button" style="background: rgb(28, 184, 65);">Tambah</button></a> 
-        <p></p>
+         <p></p>
+          <% if(pageRuang.getResultList().isEmpty()){ %>
+            <h4 align="center" style="background-color:red;">Data tidak ditemukan</h4>
+        <% }else { %>
+        
+       
+         <p></p>
         <table class="pure-table pure-table-horizontal ">
             <thead>
                 <tr>
@@ -88,5 +94,7 @@ if(noruangrawat != null && !noruangrawat.trim().equals("")){
             <% } %>
         </p>
         <p>menampilkan <%=pageRuang.getResultFrom()%> - <%=pageRuang.getResultTo()%> dari total <%=pageRuang.getTotalResults()%></p>
+          <% } %>
     </div>        
 </div>
+

@@ -36,7 +36,8 @@ if(act == null || act.trim().equals("")){
 						<% if(("admin").equals(session.getAttribute("permission_level"))){ %>
                             <h4 align="center" style="background-color:red;"><li class="pure-menu-item">
                             <a href="?act=ruangrawat" class="pure-menu-link">Ruang Rawat</a>
-                            </li></h4>
+                            </li>
+							</h4>
 							<li class="pure-menu-item">
 								<a href="?act=pendaftaran" class="pure-menu-link">Pendaftaran</a>
 							</li>
@@ -96,9 +97,12 @@ if(act == null || act.trim().equals("")){
 						<li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover">
 							<a href="#" class="pure-menu-link">akun</a>
 							<ul class="pure-menu-children-vertical">
-								<li class="pure-menu-item">
-									<a href="?act=info_akun" class="pure-menu-link">info akun</a>
-								</li>
+						<% if(("admin").equals(session.getAttribute("permission_level"))){ %>
+                            <li class="pure-menu-item">
+                            <a href="?act=ruangrawat" class="pure-menu-link">Ruang Rawat</a>
+                            </li>
+							<% }%>
+                            </li>
 								<li class="pure-menu-item">
 									<a href="?act=ganti_password" class="pure-menu-link">ganti password</a>
 								</li>
@@ -112,10 +116,10 @@ if(act == null || act.trim().equals("")){
 			</div>
 		
 
-<div class="vl"></div>
+<div class="vl "></div>
 
 		
-			<div class="pure-u-1" align="center">
+			<div class="pure-u-16-24" align="center">
 			<% if(act.equals("default")){ %>
 			<h3> Silakan memilih menu </h3>
 			<% }else if(act.equals("logout")){ %>

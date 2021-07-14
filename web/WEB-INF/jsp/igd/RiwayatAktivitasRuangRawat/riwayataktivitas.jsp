@@ -35,14 +35,22 @@ if(noriwayat != null && !noriwayat.trim().equals("")){
 
 
 %>
-<div class="pure-u-1-2" style="align-items:center;">
+<div class="pure-u-1-1" style="align-items:center;">
+        <div class="pure-g">
         <form action="?act=riwayataktivitas" method="post" class="pure-form pure-u-1-2">
             <input type="hidden" name="action" value="cari_riwayat" />
             <input type="text" name="riwayat_search_key" class="pure-input-rounded" placeholder="noriwayat" value="<%=searchKey%>" />
             <input type="submit" class="pure-button pure-button-primary" value="cari" />
         </form>
         <a href="?act=add_riwayat" class="pure-u-1-3"><button class="button-success pure-button" style="background: rgb(28, 184, 65);">Tambah</button></a> 
+        </div>
         <p></p>
+          <% if(pageriwayat.getResultList().isEmpty()){ %>
+            <h4 align="center" style="background-color:red;">Data tidak ditemukan</h4>
+        <% }else { %>
+        
+       
+         <p></p>
         <table class="pure-table pure-table-horizontal ">
             <thead>
                 <tr>
@@ -90,7 +98,7 @@ if(noriwayat != null && !noriwayat.trim().equals("")){
             <% } %>
         </p>
         <p>menampilkan <%=pageriwayat.getResultFrom()%> - <%=pageriwayat.getResultTo()%> dari total <%=pageriwayat.getTotalResults()%></p>
+     <% } %>
     </div>        
-</div>
 
 
